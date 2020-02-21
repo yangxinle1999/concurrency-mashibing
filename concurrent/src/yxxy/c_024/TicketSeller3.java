@@ -1,6 +1,6 @@
 package yxxy.c_024;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
  * 重复销售？超量销售？
  *
  */
-public class TicketSeller2 {
-    static Vector<String> tickets=new Vector<>();
+public class TicketSeller3 {
+    static LinkedList<String> tickets=new LinkedList<>();
 
     static {
         for (int i = 0; i < 1000; i++) {
@@ -30,13 +30,17 @@ public class TicketSeller2 {
         for (int i = 0; i < 10; i++) {
             new Thread(()->{
                while (tickets.size()>0){
-                   try {
-                       TimeUnit.MILLISECONDS.sleep(10);
-                   } catch (InterruptedException e) {
-                       e.printStackTrace();
+                   synchronized (tickets){
+                       if (tickets.size()<=0){
+                           break;
+                       }
+                       try {
+                           TimeUnit.MILLISECONDS.sleep(10);
+                       } catch (InterruptedException e) {
+                           e.printStackTrace();
+                       }
+                       System.out.println(Thread.currentThread().getName()+"销售了--"+tickets.remove(0));
                    }
-
-                   System.out.println(Thread.currentThread().getName()+"销售了--"+tickets.remove(0));
                }
             },"窗口"+i).start();
         }

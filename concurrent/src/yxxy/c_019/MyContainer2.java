@@ -10,11 +10,14 @@ import java.util.concurrent.TimeUnit;
  * 曾经的面试题：
  * 实现一个容器，提供两个方法：add，size
  * 写两个线程，线程1添加10个元素到容器中，线程2实现监控元素的个数，当个数到5个时，线程2给出提示并结束
+ * 给lists添加volatile之后，t2能够接到通知，但是t2线程的死循环很浪费cpu，如果不用死循环怎么做呢？
  *
  * 分析下面这个程序，能完成这个功能吗？
  */
-public class MyContainer1 {
-    List lists=new ArrayList();
+public class MyContainer2 {
+    //添加volatile，使t2能够得到通知
+    volatile List lists=new ArrayList();
+
     public void add(Object o){
         lists.add(o);
     }
@@ -24,7 +27,8 @@ public class MyContainer1 {
     }
 
     public static void main(String[] args) {
-        MyContainer1 c=new MyContainer1();
+
+        MyContainer2 c=new MyContainer2();
 
         new Thread(()->{
             for (int i = 0; i < 10; i++) {

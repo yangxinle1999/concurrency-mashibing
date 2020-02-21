@@ -1,17 +1,16 @@
-package yxxy.c_013;
+package yxxy.c_014;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @version 1.0
  * @create 2020/2/18 19:27
- * volatile并不能保证多个线程共同修改running变量时所带来的不一致问题，也就是说volatile不能替代synchronized
+ * 对比上个程序，可以同synchronized解决，synchronized可以保证可见性和原子性，volatile只保证可见性
  */
 class T {
-    volatile int count=0;
-    void m(){
+    /*volatile*/ int count=0;
+    synchronized void m(){
         for (int i = 0; i < 10000; i++) {
             count++;
         }

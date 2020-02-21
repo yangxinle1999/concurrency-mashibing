@@ -5,4 +5,7 @@ package yxxy.c_026;
  * @create 2020/2/21 13:57
  */
 public class T13_ThreadPoolExecutor {
+    public static void main(String[] args) {
+
+    }
 }

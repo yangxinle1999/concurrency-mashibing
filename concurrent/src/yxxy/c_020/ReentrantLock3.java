@@ -11,8 +11,10 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * 需要注意的是，必须要手动释放锁
  * 使用syn锁定的话如果遇到异常，jvm会自动释放锁，但是lock必须手动释放锁，因此经常在finally中进行锁的释放
+ *
+ * 使用reentrantlock可以进行“尝试锁定”trylock，这样无法锁定，或者在指定时间内无法锁定，线程可以决定是否继续等待
  */
-class ReentrantLock2 {
+class ReentrantLock3 {
     Lock lock=new ReentrantLock();
 
     void m1(){
@@ -37,17 +39,29 @@ class ReentrantLock2 {
         }
     }
 
+    /**
+     * 使用trylock进行尝试锁定，不管锁定与否，方法都将继续执行
+     * 可以根据trylock的返回值来判断是否锁定
+     * 也可以指定trylock的时间，由于trylock(time)抛出异常，所以要注意unlock的处理，必须方法finally中
+     */
     void m2(){
-        lock.lock();
+        /*boolean locked=lock.tryLock();
+        System.out.println("m2..."+locked);
+        if (locked) lock.unlock();*/
+
+        boolean locked=false;
         try {
-            System.out.println("m2....");
+            locked=lock.tryLock(5,TimeUnit.SECONDS);
+            System.out.println("m2...."+locked);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
-            lock.unlock();
+            if (locked) lock.unlock();
         }
     }
 
     public static void main(String[] args) {
-        ReentrantLock2 r1=new ReentrantLock2();
+        ReentrantLock3 r1=new ReentrantLock3();
         new Thread(r1::m1).start();
         try {
             TimeUnit.SECONDS.sleep(1);

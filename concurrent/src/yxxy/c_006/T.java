@@ -1,4 +1,4 @@
-package yxxy.c_005;
+package yxxy.c_006;
 
 /**
  * @version 1.0
@@ -9,7 +9,7 @@ class T implements Runnable {
     private int count=10;
 
     @Override
-    public /*synchronized*/ void run() {
+    public synchronized void run() {
         count--;
         System.out.println(Thread.currentThread().getName()+" count = "+count);
     }

@@ -4,5 +4,20 @@ package yxxy.c_005;
  * @version 1.0
  * @create 2020/2/18 14:35
  */
-public class T {
+class T implements Runnable {
+
+    private int count=10;
+
+    @Override
+    public /*synchronized*/ void run() {
+        count--;
+        System.out.println(Thread.currentThread().getName()+" count = "+count);
+    }
+
+    public static void main(String[] args) {
+        T t=new T();
+        for (int i = 0; i < 5; i++) {
+            new Thread(t,"Thread"+i).start();
+        }
+    }
 }

@@ -18,10 +18,14 @@ import java.util.concurrent.TimeUnit;
  *
  * 阅读下面程序，并分析出结果
  * 可以读到输出结果但并不是sieze=5时退出，而是t1结束时t2才接收到通知而退出
+ * 想想这是为什么
+ *
+ * notify之后,t1必须释放锁，t2退出后也必须notify，通知t1继续执行
+ * 整个通信过程比较繁琐
  *
  *
  */
-public class MyContainer3 {
+public class MyContainer4 {
     //添加volatile，使t2能够得到通知
     volatile List lists=new ArrayList();
 
@@ -35,7 +39,7 @@ public class MyContainer3 {
 
     public static void main(String[] args) {
 
-        MyContainer3 c=new MyContainer3();
+        MyContainer4 c=new MyContainer4();
 
         final Object lock=new Object();
 
@@ -50,6 +54,8 @@ public class MyContainer3 {
                     }
                 }
                 System.out.println("t2结束");
+                //让t1继续执行
+                lock.notify();
             }
         },"t2").start();
 
@@ -69,6 +75,12 @@ public class MyContainer3 {
 
                     if (c.size()==5){
                         lock.notify();
+                        //释放锁，让t2得以执行
+                        try {
+                            lock.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     try {

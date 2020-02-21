@@ -6,9 +6,13 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0
  * @create 2020/2/19 21:40
  * ThreadLocal线程局部变量
+ *
+ * ThreadLocal是使用空间换时间，synchronized是使用时间换空间
+ * 比如在hibernate中的session就存在ThreadLocal中，避免synchronized的使用
  */
-public class ThreadLocal1 {
-    volatile static Person p =new Person();
+public class ThreadLocal2 {
+    //volatile static Person p =new Person();
+    static ThreadLocal<Person> t1=new ThreadLocal<>();
 
     public static void main(String[] args) {
         new Thread(()->{
@@ -17,7 +21,7 @@ public class ThreadLocal1 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(p.name);
+            System.out.println(t1.get());
         }).start();
 
 
@@ -27,11 +31,14 @@ public class ThreadLocal1 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            p.name="lisi";
+            t1.set(new Person());
         }).start();
+    }
+
+    static class Person{
+        String name="zhangsan";
     }
 }
 
-class Person{
-    String name="zhangsan";
-}
+
+
