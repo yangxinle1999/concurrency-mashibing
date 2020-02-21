@@ -5,10 +5,7 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @version 1.0
- * @create 2020/2/20 14:25
- */
+
 public class T07_DelayQueue {
     static BlockingQueue<MyTask> tasks=new DelayQueue<>();
 

@@ -5,10 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @version 1.0
- * @create 2020/2/21 10:37
- */
+
 public class T10_SchedulePool {
     public static void main(String[] args) {
         ScheduledExecutorService service= Executors.newScheduledThreadPool(4);

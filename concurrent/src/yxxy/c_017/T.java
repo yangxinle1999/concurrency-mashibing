@@ -3,8 +3,6 @@ package yxxy.c_017;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @version 1.0
- * @create 2020/2/18 20:21
  * 锁定某个对象o，如果o的属性发生改变，不影响锁的使用
  * 但如果o变成另外一个对象，则锁定的对象发生改变
  * 应该避免将锁定对象的引用变成另外的对象

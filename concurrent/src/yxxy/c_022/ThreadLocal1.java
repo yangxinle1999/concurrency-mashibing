@@ -3,8 +3,6 @@ package yxxy.c_022;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @version 1.0
- * @create 2020/2/19 21:40
  * ThreadLocal线程局部变量
  */
 public class ThreadLocal1 {

@@ -5,8 +5,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @version 1.0
- * @create 2020/2/19 11:27
  * reentrantlock用于替代synchronized
  *
  * 需要注意的是，必须要手动释放锁

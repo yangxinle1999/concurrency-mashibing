@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @version 1.0
- * @create 2020/2/18 19:27
  * 对比上个程序，可以同synchronized解决，synchronized可以保证可见性和原子性，volatile只保证可见性
  */
 class T {

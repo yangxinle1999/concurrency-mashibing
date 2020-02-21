@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @version 1.0
- * @create 2020/2/18 19:27
  * volatile并不能保证多个线程共同修改running变量时所带来的不一致问题，也就是说volatile不能替代synchronized
  */
 class T {

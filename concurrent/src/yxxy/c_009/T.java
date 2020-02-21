@@ -3,8 +3,6 @@ package yxxy.c_009;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @version 1.0
- * @create 2020/2/18 15:56
  * 一个同步方法可以调用另一个同步方法，一个线程已经拥有了某个对象的值，再次申请的时候仍然会得到该对象的锁
  * 也就是说synchronized获得的锁是可重入的
  */

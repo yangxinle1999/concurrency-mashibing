@@ -3,8 +3,6 @@ package yxxy.c_012;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @version 1.0
- * @create 2020/2/18 16:32
  * volatile关键字，使一个变量在多个线程间可见
  * A B线程都用到一个变量，java默认是A线程中保留一份copy，这样如果B线程修改了该变量，则A线程未必直到
  * 使用volatile关键字，会让所有线程都读到该变量的修改值

@@ -5,9 +5,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @version 1.0
- * @create 2020/2/19 14:47
- *
  * 使用ReentrantLock还可以调用lockInterruptibly方法，可以对线程interrupt方法做出响应
  * 在一个线程等待锁的过程中，可以被打断
  */

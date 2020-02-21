@@ -3,8 +3,6 @@ package yxxy.c_026;
 import java.util.concurrent.Executor;
 
 /**
- * @version 1.0
- * @create 2020/2/20 19:21
  * 认识Executor
  */
 public class T01_MyExecutor implements Executor {

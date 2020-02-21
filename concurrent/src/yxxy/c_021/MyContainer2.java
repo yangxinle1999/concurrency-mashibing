@@ -7,8 +7,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @version 1.0
- * @create 2020/2/19 20:22
  * 面试题：写一个固定容量同步容器，拥有put和get方法，以及getCount方法
  * 能够支持两个生产者线程以及10个消费者线程的阻塞调用
  *

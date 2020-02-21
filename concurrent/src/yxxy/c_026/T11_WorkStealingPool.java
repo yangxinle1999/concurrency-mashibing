@@ -7,10 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import static javafx.scene.input.KeyCode.R;
 
-/**
- * @version 1.0
- * @create 2020/2/21 10:45
- */
+
 public class T11_WorkStealingPool {
     public static void main(String[] args) throws IOException {
         ExecutorService service= Executors.newWorkStealingPool();

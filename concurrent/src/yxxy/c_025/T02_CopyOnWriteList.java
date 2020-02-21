@@ -4,8 +4,6 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * @version 1.0
- * @create 2020/2/20 13:40
  * 写时复制容器
  * 多线程环境下，写时效率低，读时效率高
  * 适合写少读多的环境

@@ -3,8 +3,6 @@ package yxxy.c_011;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @version 1.0
- * @create 2020/2/18 16:12
  * 程序在执行过程中，如果出现异常，默认情况锁会被释放
  * 所以，在并发处理的过程中，有异常要多加小心，不然可能会发生不一致的情况
  * 比如，在一个web app处理过程中，多个servlet线程共同访问一个资源，这时如果异常处理不合适，

@@ -9,8 +9,6 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @version 1.0
- * @create 2020/2/20 13:08
  * https://blog.csdn.net/sunxianghuang/article/details/52221913
  * 阅读ConcurrentSkipListMap
  */

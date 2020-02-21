@@ -3,9 +3,6 @@ package yxxy.c_020;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @version 1.0
- * @create 2020/2/19 15:07
- *
  * ReentrantLock还可以指定公平锁
  */
 public class ReentrantLock5 extends Thread {

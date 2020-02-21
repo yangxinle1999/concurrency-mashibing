@@ -5,10 +5,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @version 1.0
- * @create 2020/2/20 14:06
- */
 public class T05_LinkedBlockingQueue {
     static BlockingQueue<String> strs=new LinkedBlockingQueue<>();
 

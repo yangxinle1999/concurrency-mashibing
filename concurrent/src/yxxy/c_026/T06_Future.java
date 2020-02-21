@@ -2,10 +2,7 @@ package yxxy.c_026;
 
 import java.util.concurrent.*;
 
-/**
- * @version 1.0
- * @create 2020/2/20 21:40
- */
+
 public class T06_Future {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         FutureTask<Integer> task=new FutureTask<>(()->{

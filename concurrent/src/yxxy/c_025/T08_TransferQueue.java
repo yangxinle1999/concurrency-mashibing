@@ -2,10 +2,7 @@ package yxxy.c_025;
 
 import java.util.concurrent.LinkedTransferQueue;
 
-/**
- * @version 1.0
- * @create 2020/2/20 14:43
- */
+
 public class T08_TransferQueue {
     public static void main(String[] args) throws InterruptedException {
         LinkedTransferQueue<String> strs=new LinkedTransferQueue<>();

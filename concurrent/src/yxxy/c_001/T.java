@@ -1,9 +1,6 @@
 package yxxy.c_001;
 
-/**
- * @version 1.0
- * @create 2020/2/18 14:11
- */
+
 class T {
     private int count =10;
     private Object o=new Object();

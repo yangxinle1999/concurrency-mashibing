@@ -3,10 +3,7 @@ package yxxy.c_025;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 
-/**
- * @version 1.0
- * @create 2020/2/20 14:43
- */
+
 public class T09_SynchronusQueue {  //容量为0
     public static void main(String[] args) throws InterruptedException {
         BlockingQueue<String> strs=new SynchronousQueue<>();
