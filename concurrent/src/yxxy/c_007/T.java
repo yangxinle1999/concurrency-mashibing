@@ -28,6 +28,10 @@ class T {
         T t=new T();
         new Thread(()->t.m1(),"t1").start();
         new Thread(()->t.m2(),"t2").start();
+        //结果：
+//        t1m1 start...
+//        t2 m2
+//        t1 m1 end
 
         /*new Thread(t::m1,"t1").start();
         new Thread(t::m2,"t2").start();*/
