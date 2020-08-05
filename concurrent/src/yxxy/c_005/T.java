@@ -1,6 +1,6 @@
 package yxxy.c_005;
 
-//被synchronized修饰的部分是原子操作
+//被synchronized修饰的部分是原子操作，不被被ynchronized修饰的部分不是原子操作
 class T implements Runnable {
 
     private int count=10;
