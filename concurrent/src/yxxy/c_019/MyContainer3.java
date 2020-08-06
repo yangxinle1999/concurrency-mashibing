@@ -42,7 +42,7 @@ public class MyContainer3 {
                 System.out.println("t2启动");
                 if (c.size()!=5){
                     try {
-                        lock.wait();
+                        lock.wait(); //阻塞同时释放锁
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -66,7 +66,7 @@ public class MyContainer3 {
                     System.out.println("add "+i);
 
                     if (c.size()==5){
-                        lock.notify();
+                        lock.notify(); //唤醒这把锁上等待的线程，但不会释放锁
                     }
 
                     try {
