@@ -12,6 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * 使用Lock和Condition来实现
  * 对比两种方式，condition的方式可以更加精确的指定哪些线程被唤醒
+ *
  */
 public class MyContainer2<T> {
     final private LinkedList<T> lists=new LinkedList<T>();

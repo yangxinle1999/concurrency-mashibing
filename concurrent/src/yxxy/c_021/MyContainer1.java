@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
  * 能够支持两个生产者线程以及10个消费者线程的阻塞调用
  *
  * 使用wait和nofify、notifyAll来实现
+ *
  */
 public class MyContainer1<T> {
     final private LinkedList<T> lists=new LinkedList<T>();
