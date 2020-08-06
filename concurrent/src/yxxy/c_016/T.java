@@ -3,7 +3,7 @@ package yxxy.c_016;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 同步代码块中的语句越少越好
+ * 同步代码块中的语句越少越好，即细粒度锁比粗粒度锁效率高
  * 比较m1和m2
  */
 class T {
