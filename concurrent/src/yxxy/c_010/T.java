@@ -28,7 +28,7 @@ class TT extends T{
     @Override
     synchronized void m(){
         System.out.println("child m start");
-        super.m();
+        super.m(); //调用父类的m方法，父类的m方法得到的锁是子类的
         System.out.println("chile m end");
     }
 }
