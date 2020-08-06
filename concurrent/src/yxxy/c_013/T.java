@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 class T {
     volatile int count=0;
     void m(){
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000; i++) {
             count++;
         }
     }
@@ -21,19 +21,18 @@ class T {
         List<Thread> threads=new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            threads.add(new Thread(t::m,"thread-"+i));
+            threads.add(new Thread(t::m,"thread-"+i)); //创建10个线程
         }
 
         threads.forEach((o)->o.start());
 
         threads.forEach((o)->{
             try {
-                o.join();
+                o.join();  //join主要的作用就是让主线程等待子线程执行完毕之后，才让主线程继续执行。
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
-
-        System.out.println(t.count);
+        System.out.println(t.count); //结果是9172，说明volatile不是原子操作
     }
 }
