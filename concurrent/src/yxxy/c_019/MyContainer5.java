@@ -29,7 +29,6 @@ import java.util.concurrent.TimeUnit;
  * 当不涉及同步，只是涉及线程通信的时候，用synchronized+wait/notify就显得太重了
  * 这时应该考虑CountDownLacth/cyclicbarrier/semaphore
  *
- *
  */
 public class MyContainer5 {
     //添加volatile，使t2能够得到通知
@@ -54,7 +53,6 @@ public class MyContainer5 {
             if (c.size()!=5){
                 try {
                     latch.await();
-
                     //也可以指定等待时间
                     //latch.await(5000,TimeUnit.MILLISECONDS);
                 } catch (InterruptedException e) {
@@ -79,7 +77,7 @@ public class MyContainer5 {
                 System.out.println("add "+i);
 
                 if (c.size()==5){
-                    //打开门闩，让t2得以执行
+                    //门闩数量减一，变为0之后打开门闩，让t2得以执行
                     latch.countDown();
                 }
 
@@ -96,3 +94,19 @@ public class MyContainer5 {
 
     }
 }
+
+//结果是：
+//        t2启动
+//        t1启动
+//        add 0
+//        add 1
+//        add 2
+//        add 3
+//        add 4
+//        t2结束
+//        add 5
+//        add 6
+//        add 7
+//        add 8
+//        add 9
+//        t1结束
