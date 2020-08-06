@@ -38,6 +38,6 @@ class T {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        t.running=false;
+        t.running=false; //主线程将running改为false，不加volatile的话，t1线程感知不到
     }
 }
