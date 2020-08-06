@@ -94,3 +94,19 @@ public class MyContainer4 {
 
     }
 }
+
+//结果：
+//        t2启动
+//        t1启动
+//        add 0
+//        add 1
+//        add 2
+//        add 3
+//        add 4
+//        t2结束
+//        add 5
+//        add 6
+//        add 7
+//        add 8
+//        add 9
+//        t1结束
