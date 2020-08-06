@@ -39,7 +39,7 @@ public class MyContainer1 {
         },"t1").start();
 
         new Thread(()->{
-            while (true){
+            while (true){  //一直会循环，当size为5时也不会停止，因为两个线程数据不可见，t2永远不会结束
                 if (c.size()==5){
                     break;
                 }
