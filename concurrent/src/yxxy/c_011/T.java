@@ -22,13 +22,12 @@ class T {
                 e.printStackTrace();
             }
             if (count==5){
-                //int i=1/0;//此处抛出异常，锁将被释放，要想不被释放，可以在这里进行catch，然后让循环继续
-
-                try {
-                    int i=1/0;
-                } catch (Exception e) {
-                    System.out.println("执行错误，重新执行");
-                }
+                int i=1/0;//此处抛出异常，锁将被释放，要想不被释放，可以在这里进行catch，然后让循环继续
+//                try {
+//                    int i=1/0;
+//                } catch (Exception e) {
+//                    System.out.println("执行错误，重新执行");
+//                }
 
             }
         }
@@ -50,7 +49,7 @@ class T {
             e.printStackTrace();
         }
 
-        new Thread(r,"t2").start();
+        new Thread(r,"t2").start(); //加入catch捕获异常后t2将永远不会执行，不加的话会执行t2
     }
 
 }
