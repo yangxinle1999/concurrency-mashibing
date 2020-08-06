@@ -11,6 +11,7 @@ class Account {
     private String name;
     private double balance;
 
+    //写方法
     public synchronized void set(String name,double balance){
         this.name=name;
         try {
@@ -21,6 +22,7 @@ class Account {
         this.balance=balance;
     }
 
+    //读方法
     public synchronized double getBalance(String name) {
         return this.balance;
     }
@@ -35,7 +37,7 @@ class Account {
             e.printStackTrace();
         }
 
-        System.out.println(a.getBalance("张三"));
+        System.out.println(a.getBalance("张三")); //不加synchronized输出是0.0，加的话输出100.0
 
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -43,7 +45,7 @@ class Account {
             e.printStackTrace();
         }
 
-        System.out.println(a.getBalance("张三"));
+        System.out.println(a.getBalance("张三")); //100
 
     }
 }
