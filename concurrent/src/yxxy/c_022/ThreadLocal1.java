@@ -15,7 +15,7 @@ public class ThreadLocal1 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(p.name);
+            System.out.println(p.name); //lisi
         }).start();
 
 

@@ -19,7 +19,7 @@ public class ThreadLocal2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(t1.get());
+            System.out.println(t1.get()); //null,两个线程之间变量互不影响
         }).start();
 
 
