@@ -26,7 +26,7 @@ class ReentrantLock3 {
          */
         lock.lock();    //相当于synchronized(this)
         try {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 3; i++) {
                 TimeUnit.SECONDS.sleep(1);
                 System.out.println(i);
             }
@@ -49,7 +49,7 @@ class ReentrantLock3 {
 
         boolean locked=false;
         try {
-            locked=lock.tryLock(5,TimeUnit.SECONDS);
+            locked=lock.tryLock(5,TimeUnit.SECONDS); //5秒之后还没得到锁就不等了，返回false
             System.out.println("m2...."+locked);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -69,3 +69,16 @@ class ReentrantLock3 {
         new Thread(r1::m2).start();
     }
 }
+//结果是：
+//        0
+//        1
+//        2
+//        3
+//        4
+//        m2....false
+//        5
+//        6
+//        7
+//        8
+//        9
+

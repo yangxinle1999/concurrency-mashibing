@@ -31,7 +31,7 @@ class ReentrantLock2 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
-            lock.unlock();
+            lock.unlock(); //释放锁
         }
     }
 
@@ -55,3 +55,15 @@ class ReentrantLock2 {
         new Thread(r1::m2).start();
     }
 }
+//结果是：
+//        0
+//        1
+//        2
+//        3
+//        4
+//        5
+//        6
+//        7
+//        8
+//        9
+//        m2....

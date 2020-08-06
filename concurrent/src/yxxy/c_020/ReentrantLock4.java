@@ -16,7 +16,7 @@ public class ReentrantLock4 {
             lock.lock();
             try {
                 System.out.println("t1 start");
-                TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+                TimeUnit.SECONDS.sleep(Integer.MAX_VALUE); //睡很长很长时间，模拟死锁
                 System.out.println("t1 end");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -30,7 +30,7 @@ public class ReentrantLock4 {
         Thread t2=new Thread(()->{
 
             try {
-                lock.lockInterruptibly(); //可以对interrupt()做出响应
+                lock.lockInterruptibly(); //可以对interrupt()做出响应，结束等待
                 System.out.println("t2 start");
                 TimeUnit.SECONDS.sleep(5);
                 System.out.println("t2 end");
