@@ -9,7 +9,7 @@ import java.util.List;
 class T {
     /*volatile*/ int count=0;
     synchronized void m(){
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
             count++;
         }
     }
@@ -33,6 +33,6 @@ class T {
             }
         });
 
-        System.out.println(t.count);
+        System.out.println(t.count); //结果是1000
     }
 }
