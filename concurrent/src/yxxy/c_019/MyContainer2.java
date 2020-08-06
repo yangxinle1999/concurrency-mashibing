@@ -47,7 +47,7 @@ public class MyContainer2 {
                     break;
                 }
             }
-            System.out.println("t2结束");
+            System.out.println("t2结束"); //可以正常结束，但是因为线程执行顺序的不固定，可能当容器中的元素个数到6时，才打印出t2结束
         },"t2").start();
     }
 }
