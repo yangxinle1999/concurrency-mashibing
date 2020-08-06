@@ -10,7 +10,7 @@ package yxxy.c_023;
  *
  */
 public class Singleton {
-    public Singleton() {
+    private Singleton() {
         super();
         System.out.println("single");
     }
@@ -19,16 +19,23 @@ public class Singleton {
         private static Singleton s=new Singleton();
     }
 
-    private static Singleton getSingle(){
+    public static Singleton getSingle(){
         return Inner.s;
     }
 
     public static void main(String[] args) {
-        Thread[] ths=new Thread[200];
-        for (int i = 0; i < ths.length; i++) {
-            ths[i]=new Thread(()->{
-               Singleton.getSingle();
-            });
+        for (int i = 0; i < 5; i++) {
+            new Thread(()->{
+                Singleton single = Singleton.getSingle();
+                System.out.println(single.hashCode());
+            }).start();
         }
     }
 }
+//结果是：
+//single
+//1923132015
+//1923132015
+//1923132015
+//1923132015
+//1923132015
