@@ -14,7 +14,7 @@ class T {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        m2();
+        m2(); //可重入
     }
 
     synchronized void m2(){
@@ -23,7 +23,6 @@ class T {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         System.out.println("m2");
     }
 }
