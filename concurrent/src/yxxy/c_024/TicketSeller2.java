@@ -32,7 +32,7 @@ public class TicketSeller2 {
                    } catch (InterruptedException e) {
                        e.printStackTrace();
                    }
-
+                   //会出现ArrayIndexOutOfBoundsException异常，当还有一张票时，10个线程都判断了size>0进去卖，但其实只有一张票
                    System.out.println(Thread.currentThread().getName()+"销售了--"+tickets.remove(0));
                }
             },"窗口"+i).start();

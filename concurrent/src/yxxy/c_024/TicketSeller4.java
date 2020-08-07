@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public class TicketSeller4 {
+    //使用ConcurrentLinkedQueue，非阻塞的并发加锁队列
     static Queue<String> tickets=new ConcurrentLinkedQueue<>();
 
     static {
@@ -28,7 +29,7 @@ public class TicketSeller4 {
         for (int i = 0; i < 10; i++) {
             new Thread(()->{
                while (true){
-                   String s=tickets.poll();
+                   String s=tickets.poll(); //原子操作
 
                    if (s==null){
                        break;

@@ -28,7 +28,7 @@ public class TicketSeller3 {
             new Thread(()->{
                while (tickets.size()>0){
                    synchronized (tickets){
-                       if (tickets.size()<=0){
+                       if (tickets.size()<=0){ //双重判断很重要
                            break;
                        }
                        try {
