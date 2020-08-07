@@ -21,7 +21,7 @@ public class T01_ConcurrentMap {
         //Map<String,String> map= new HashMap<>();
         //TreeMap
         Random r=new Random();
-        Thread[] ths=new Thread[100];
+        Thread[] ths=new Thread[100];//放100个线程
         CountDownLatch latch=new CountDownLatch(ths.length);
         long start=System.currentTimeMillis();
         for (int i = 0; i < ths.length; i++) {
@@ -36,7 +36,7 @@ public class T01_ConcurrentMap {
         Arrays.asList(ths).forEach(t->t.start());
 
         try {
-            latch.await();
+            latch.await(); //主线程锁住
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

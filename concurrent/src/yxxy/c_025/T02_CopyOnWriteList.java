@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 写时复制容器
- * 多线程环境下，写时效率低，读时效率高
+ * 多线程环境下，写时效率低，读时效率高（写是复制一份原数据，在后面加上新数据，要加锁，读不用加锁）
  * 适合写少读多的环境
  */
 public class T02_CopyOnWriteList {
