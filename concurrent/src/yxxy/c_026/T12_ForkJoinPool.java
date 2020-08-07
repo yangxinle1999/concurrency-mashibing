@@ -7,7 +7,8 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.RecursiveTask;
 
-
+//ForkJoinPool：JDK1.7之后新加入的，fork---->分叉；join---->合并；
+// 也是精灵线程，内部使用递归，递归的过程由ForkJoinPool线程池为我们维护
 public class T12_ForkJoinPool {
     static int[] nums=new int[1000000];
     static final int MAX_NUM=50000;

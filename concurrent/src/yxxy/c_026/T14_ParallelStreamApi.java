@@ -19,17 +19,23 @@ public class T14_ParallelStreamApi {
         long start=System.currentTimeMillis();
         nums.forEach(v->isPrime(v));
         long end=System.currentTimeMillis();
-        System.out.println(end-start);
+        System.out.println(end-start); //2126
 
         //使用parallel stream api
 
         start=System.currentTimeMillis();
-        nums.parallelStream().forEach(T14_ParallelStreamApi::isPrime);
+        nums.stream().forEach(T14_ParallelStreamApi::isPrime); //单管道
+        end=System.currentTimeMillis();
+        System.out.println(end-start); //2111
+
+        start=System.currentTimeMillis();
+        nums.parallelStream().forEach(T14_ParallelStreamApi::isPrime);  //多管道
         end=System.currentTimeMillis();
 
-        System.out.println(end-start);
+        System.out.println(end-start); //390
     }
 
+    //判断一个数是不是质数
     private static boolean isPrime(Integer num) {
         for (int i = 2; i < num/2; i++) {
             if (num % i == 0){

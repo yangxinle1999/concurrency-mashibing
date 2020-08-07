@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 线程池的概念
  */
+//固定线程个数的线程池
 public class T05_ThreadPool {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService service= Executors.newFixedThreadPool(5);   //execute submit

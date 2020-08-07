@@ -3,7 +3,7 @@ package yxxy.c_026;
 import java.util.concurrent.Executor;
 
 /**
- * 认识Executor
+ * 认识Executor(接口中只有void execute(Runnable command);)
  */
 public class T01_MyExecutor implements Executor {
     public static void main(String[] args) {
@@ -13,8 +13,7 @@ public class T01_MyExecutor implements Executor {
     }
 
     @Override
-    public void execute(Runnable command){
-        new Thread(command).run();
-        //command.run();
+    public void execute(Runnable command) {
+       new Thread(command).start();
     }
 }
